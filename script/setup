@@ -19,7 +19,7 @@ fi
 ln -sfn $PWD/hammerspoon ~/.hammerspoon/keyboard
 
 # Prepare custom settings for navigating between words in iTerm2
-grep -sq forward-word ~/.inputrc || cat $PWD/inputrc >> ~/.inputrc
+# grep -sq forward-word ~/.inputrc || cat $PWD/inputrc >> ~/.inputrc
 
 # Disable Dock icon for Hammerspoon
 defaults write org.hammerspoon.Hammerspoon MJShowDockIconKey -bool FALSE

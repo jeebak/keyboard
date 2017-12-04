@@ -87,6 +87,7 @@ require('keyboard.grids')
 -- require('keyboard.markdown')
 -- require('keyboard.microphone')
 -- require('keyboard.panes')
+require('keyboard.spoons')
 require('keyboard.windows')
 
 hs.notify.new({title='Hammerspoon', informativeText='Ready to rock 🤘'}):send()

@@ -12,6 +12,7 @@ hs.loadSpoon("SpoonInstall")
 -------------------------------------------------------------------------------
 -- https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseCircle.spoon.zip
 --  http://www.hammerspoon.org/Spoons/MouseCircle.html
+-- HOTKEY: Use Hyper+m to Show MouseCircle
 spoon.SpoonInstall:andUse("MouseCircle",
   {
     disable = false,
@@ -26,6 +27,7 @@ spoon.SpoonInstall:andUse("MouseCircle",
 -------------------------------------------------------------------------------
 -- https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TextClipboardHistory.spoon.zip
 --  http://www.hammerspoon.org/Spoons/TextClipboardHistory.html
+-- HOTKEY: Use Cmd+Shift+v to Show TextClipboardHistory
 spoon.SpoonInstall:andUse("TextClipboardHistory",
   {
     config = {

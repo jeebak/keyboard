@@ -1,4 +1,4 @@
-local fontName = 'SauceCodePro Nerd Font'
+-- local fontName = 'SauceCodePro Nerd Font Mono Light'
 local hyper = {'shift', 'ctrl', 'alt', 'cmd'}
 local log = hs.logger.new('init.lua', 'debug')
 
@@ -35,21 +35,22 @@ end
 
 -------------------------------------------------------------------------------
 -- /Applications/Hammerspoon.app/Contents/Resources/extensions/hs/expose
-local expose = require('hs.expose')
-expose.ui.fontName = fontName
--- expose.ui.maxHintLetters = 1 -- if necessary, hints longer than this will be disambiguated with digits
-expose.ui.fitWindowsMaxIterations = 10 -- lower is faster, but higher chance of overlapping thumbnails
-local expose_app   = expose.new(nil, {onlyActiveApplication=true, maxHintLetters=1}) -- show windows for the current application
-local expose_space = expose.new(nil, {includeOtherSpaces=false,   maxHintLetters=0}) -- only windows in the current Mission Control Space
--- HOTKEY: Use Hyper+a to expose_app
-hs.hotkey.bind(hyper, 'a', function()expose_app:toggleShow()end)
--- HOTKEY: Use Hyper+s to expose_space
-hs.hotkey.bind(hyper, 's', function()expose_space:toggleShow()end)
 -------------------------------------------------------------------------------
 -- /Applications/Hammerspoon.app/Contents/Resources/extensions/hs/hints
 local hints = require('hs.hints')
-hints.fontName = fontName
+hints.hintChars = {
+  "A", "S", "D", "F",
+  "Q", "W", "E", "R",
+  "Z", "X", "C", "V",
+  "T", "Y", "B",
+  "Y", "H", "N",
+  "U", "I", "O", "P",
+  "J", "K", "L",
+  "M"
+}
+-- hints.fontName = fontName
 hints.fontSize = 24
+-- hints.textColor={0.9,0.9,0.9,1}
 -- HOTKEY: Use Hyper+f to show hints.windowHints
 hs.hotkey.bind(hyper, 'f', hints.windowHints)
 -------------------------------------------------------------------------------
@@ -71,19 +72,19 @@ hs.hotkey.bind(hyper, 'i', hl.toggleIsolate)
 hs.hotkey.bind(hyper, 'o', function() hl.ui.overlay = not hl.ui.overlay end)
 hl.start()
 -------------------------------------------------------------------------------
--- /Applications/Hammerspoon.app/Contents/Resources/extensions/hs/window/switcher.lua
-require('hs.window.switcher')
-hs.window.filter.ignoreAlways['Hyper'] = true
-hs.window.filter.ignoreAlways['Terminal'] = true
-hs.window.filter.ignoreAlways['iTerm2'] = true
-hs.window.filter.ignoreAlways['kitty'] = true
-hs.window.switcher.ui.fontName = fontName
-hs.window.switcher.ui.highlightColor = {0.8,0.8,1,0.5} -- highlight color for the selected window
-local switcher = hs.window.switcher.new(hs.window.filter.new():setCurrentSpace(true):setDefaultFilter{}) -- include minimized/hidden windows, current Space only
--- HOTKEY: Use Alt+tab to switch window next
-hs.hotkey.bind('alt', 'tab', function()switcher:next()end)
--- HOTKEY: Use Alt+Shift+tab to switch window previous
-hs.hotkey.bind('alt-shift', 'tab', function()switcher:previous()end)
+-- -- /Applications/Hammerspoon.app/Contents/Resources/extensions/hs/window/switcher.lua
+-- require('hs.window.switcher')
+-- hs.window.filter.ignoreAlways['Hyper'] = true
+-- hs.window.filter.ignoreAlways['Terminal'] = true
+-- hs.window.filter.ignoreAlways['iTerm2'] = true
+-- hs.window.filter.ignoreAlways['kitty'] = true
+-- hs.window.switcher.ui.fontName = fontName
+-- hs.window.switcher.ui.highlightColor = {0.8,0.8,1,0.5} -- highlight color for the selected window
+-- local switcher = hs.window.switcher.new(hs.window.filter.new():setCurrentSpace(true):setDefaultFilter{}) -- include minimized/hidden windows, current Space only
+-- -- HOTKEY: Use Alt+tab to switch window next
+-- hs.hotkey.bind('alt', 'tab', function()switcher:next()end)
+-- -- HOTKEY: Use Alt+Shift+tab to switch window previous
+-- hs.hotkey.bind('alt-shift', 'tab', function()switcher:previous()end)
 -------------------------------------------------------------------------------
 -- require('keyboard.control-escape')
 -- require('keyboard.delete-words')

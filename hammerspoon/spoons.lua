@@ -6,12 +6,33 @@ hs.ipc.cliInstall()
 --  http://zzamboni.org/post/using-spoons-in-hammerspoon/
 --  https://github.com/zzamboni/dot-hammerspoon/blob/master/init.lua
 -------------------------------------------------------------------------------
--- https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SpoonInstall.spoon.zip
---  http://www.hammerspoon.org/Spoons/SpoonInstall.html
+-- http://www.hammerspoon.org/Spoons/SpoonInstall.html
 hs.loadSpoon("SpoonInstall")
 -------------------------------------------------------------------------------
--- https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseCircle.spoon.zip
---  http://www.hammerspoon.org/Spoons/MouseCircle.html
+-- http://www.hammerspoon.org/Spoons/HSKeybindings.html
+-- HOTKEY: Use Hyper+m to Show MouseCircle
+--  spoon.SpoonInstall:andUse("HSKeybindings",
+--    {
+--      disable = false,
+--      hotkeys = {
+--        hide = { hyper, "." },
+--        show = { hyper, "/" }
+--      },
+--    }
+--  )
+-------------------------------------------------------------------------------
+-- http://www.hammerspoon.org/Spoons/MicMute.html
+-- HOTKEY: Use Hyper+m to toggle MicMute
+-- spoon.SpoonInstall:andUse("MicMute",
+--   {
+--     disable = false,
+--     hotkeys = {
+--       bindHotkeys = { hyper, "/" }
+--     },
+--   }
+-- )
+-------------------------------------------------------------------------------
+-- http://www.hammerspoon.org/Spoons/MouseCircle.html
 -- HOTKEY: Use Hyper+m to Show MouseCircle
 spoon.SpoonInstall:andUse("MouseCircle",
   {
@@ -21,12 +42,11 @@ spoon.SpoonInstall:andUse("MouseCircle",
     },
     hotkeys = {
       show = { hyper, "m" }
-    }
+    },
   }
 )
 -------------------------------------------------------------------------------
--- https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TextClipboardHistory.spoon.zip
---  http://www.hammerspoon.org/Spoons/TextClipboardHistory.html
+-- http://www.hammerspoon.org/Spoons/TextClipboardHistory.html
 -- HOTKEY: Use Cmd+Shift+v to Show TextClipboardHistory
 spoon.SpoonInstall:andUse("TextClipboardHistory",
   {
